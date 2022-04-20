@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gce-pvc
+  name: gke-pvc
 spec:
   accessModes:
     - ReadWriteOnce
