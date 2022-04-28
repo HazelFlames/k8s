@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sistema-noticias-ss
+spec:
+  selector:
+    matchLabels:
+      app: sn
+  serviceName: sistema-noticias-svc
+  replicas: 1
+  template:
+    metadata:
+      name: sistema-noticias
+      labels:
+        app: sn
+    spec:
+      containers:
+        - name: sistema-noticias-ct
+          image: aluracursos/sistema-noticias:1
+          ports:
+            - containerPort: 80
+              name: web
+          envFrom:
+            - configMapRef:
+                name: sistema-noticias-cm
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes: ['ReadWriteOnce']
+        resources:
+          requests:
+            storage: 1Gi
