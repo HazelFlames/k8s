@@ -23,11 +23,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: sistema-noticias-cm
-  volumeClaimTemplates:
-    - metadata:
-        name: www
-      spec:
-        accessModes: ['ReadWriteOnce']
-        resources:
-          requests:
-            storage: 1Gi
+          volumeMounts:
+            - name: imagens
+              mountPath: /var/www/html/uploads
+            - name: sessao
+              mountPath: /tmp
+      volumes:
+        - name: imagens
+          mountPath: imagens-sistema-noticias-ss-pvc
+        - name: sessao
+          mountPath: sessao-sistema-noticias-ss-pvc
