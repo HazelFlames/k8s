@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gke-sc-pvc
+  name: gke-sc
 spec:
   resources:
     requests:

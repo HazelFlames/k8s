@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: sistema-noticias-ss
+  name: sistema-noticias
 spec:
   selector:
     matchLabels:
       app: sn
-  serviceName: sistema-noticias-svc
+  serviceName: sistema-noticias
   replicas: 1
   template:
     metadata:
@@ -22,7 +22,7 @@ spec:
               name: web
           envFrom:
             - configMapRef:
-                name: sistema-noticias-cm
+                name: sistema-noticias
           volumeMounts:
             - name: imagens
               mountPath: /var/www/html/uploads
@@ -45,7 +45,7 @@ spec:
       volumes:
         - name: imagens
           persistentVolumeClaim:
-            claimName: imagens-sistema-noticias-ss-pvc
+            claimName: imagens-sistema-noticias-ss
         - name: sessao
           persistentVolumeClaim:
-            claimName: sessao-sistema-noticias-ss-pvc
+            claimName: sessao-sistema-noticias-ss

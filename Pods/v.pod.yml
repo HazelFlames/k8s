@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: v-pod
+  name: v
 spec:
   containers:
-    - name: nginx-ct
+    - name: nginx
       image: nginx:latest
       volumeMounts:
         - mountPath: /v
-          name: 1st-v
-    - name: jenkins-ct
+          name: 1st
+    - name: jenkins
       image: jenkins/jenkins:alpine
       volumeMounts:
         - mountPath: /v
-          name: 1st-v
+          name: 1st
   volumes:
-    - name: 1st-v
+    - name: 1st
       hostPath:
-        path: /Users/matt/Desktop/1st-v
+        path: /Users/matt/Desktop/1st
         type: Directory

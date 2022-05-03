@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sessao-sistema-noticias-ss-pvc
+  name: sessao-sistema-noticias-ss
 spec:
   resources:
     requests:

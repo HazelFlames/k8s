@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sistema-noticias-deploy
+  name: sistema-noticias
 spec:
   replicas: 1
   selector:
@@ -14,10 +14,10 @@ spec:
         app: sn
     spec:
       containers:
-        - name: sistema-noticias-ct
+        - name: sistema-noticias
           image: aluracursos/sistema-noticias:1
           ports:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: sistema-noticias-cm
+                name: sistema-noticias
